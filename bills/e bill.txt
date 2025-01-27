@@ -1,0 +1,4 @@
+Bill breakdown: e bill
+i1:                       ...$1
+tip:                      ...$3.00
+total:                    ...$4.00

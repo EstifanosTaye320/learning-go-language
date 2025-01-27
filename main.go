@@ -21,13 +21,17 @@ func getInput(prompt string, r *bufio.Reader) (string, error) {
 }
 
 func createBill() bill {
-	name, _ := getInput("Create a new bill name: ", reader)
+	name, _ := getInput("Create a new bill name (e - exit): ", reader)
+	if name == "e" {
+		fmt.Println("Goodbye")
+		os.Exit(0)
+	}
 	b := newBill(name)
 	return b
 }
 
 func promptOptions(b bill) {
-	opt, _ := getInput("Choose option (a - add item, s - save bill, t - add tip): ", reader)
+	opt, _ := getInput("Choose option (a - add item, s - save bill, t - add tip, e - exit): ", reader)
 
 	switch opt {
 	case "a":
@@ -57,6 +61,10 @@ func promptOptions(b bill) {
 	case "s":
 		b.save()
 		fmt.Println("you saved the file - ", b.name)
+		main()
+	case "e":
+		fmt.Println("Goodbye")
+		os.Exit(0)
 	default:
 		fmt.Println("that was not a valid option...")
 		promptOptions(b)
