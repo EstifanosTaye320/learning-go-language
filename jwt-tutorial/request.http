@@ -1,0 +1,12 @@
+POST http://localhost:8080/login
+
+{
+    "username": "user1",
+    "password": "password1"
+}
+
+### home
+Get http://localhost:8080/home
+
+### refresh
+GET http://localhost:8080/refresh
